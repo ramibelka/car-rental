@@ -22,20 +22,23 @@ const BookingForm = () => {
   };
 
   return (
-    <div className="h-screen flex justify-center items-center text-center">
-      <div className="bg-white p-6 rounded-lg shadow-lg md:w-2/3 md:flex md:flex-col md:items-center">
-        <h2 className="text-3xl font-bold mb-5">Book a Ride</h2>
+    <div
+      className="flex items-center justify-center h-screen text-center"
+      id="booking"
+    >
+      <div className="p-6 bg-white rounded-lg shadow-lg md:w-2/3 md:flex md:flex-col md:items-center">
+        <h2 className="mb-5 text-3xl font-bold">Book a Ride</h2>
         <form
           onSubmit={handleFormSubmit}
-          className="w-full flex flex-col justify-stretch"
+          className="flex flex-col w-full justify-stretch"
         >
           <div className="flex flex-col md:flex-row">
-            <div className="md:mr-4 w-full flex-grow pb-2">
-              <div className="flex items-center mb-1">
-                <AiFillCar className="text-gray-500 mr-2" />
+            <div className="flex-grow w-full pb-2 md:mr-4">
+              <div className="flex items-center justify-center mb-1 md:justify-normal">
+                <AiFillCar className="mr-2 text-gray-500" />
                 <label
                   htmlFor="carType"
-                  className="block text-gray-600 font-medium"
+                  className="block font-medium text-gray-600"
                 >
                   Car Type
                 </label>
@@ -50,12 +53,12 @@ const BookingForm = () => {
                 required
               />
             </div>
-            <div className="md:mr-4 mb-4 w-full flex-grow">
-              <div className="flex items-center mb-1">
-                <FiMapPin className="text-gray-500 mr-2" />
+            <div className="flex-grow w-full mb-4 md:mr-4">
+              <div className="flex items-center justify-center mb-1 md:justify-normal">
+                <FiMapPin className="mr-2 text-gray-500" />
                 <label
                   htmlFor="pickupLocation"
-                  className="block text-gray-600 font-medium"
+                  className="block font-medium text-gray-600"
                 >
                   Pick-up Location
                 </label>
@@ -70,12 +73,12 @@ const BookingForm = () => {
                 required
               />
             </div>
-            <div className="mb-4 flex-grow w-full">
-              <div className="flex items-center mb-1">
-                <FiMapPin className="text-gray-500 mr-2" />
+            <div className="flex-grow w-full mb-4">
+              <div className="flex items-center justify-center mb-1 md:justify-normal">
+                <FiMapPin className="mr-2 text-gray-500" />
                 <label
                   htmlFor="dropoffLocation"
-                  className="block text-gray-600 font-medium"
+                  className="block font-medium text-gray-600"
                 >
                   Drop-off Location
                 </label>
@@ -92,12 +95,12 @@ const BookingForm = () => {
             </div>
           </div>
           <div className="flex flex-col md:flex-row">
-            <div className="mb-4 md:w-1/2 md:mr-2 flex-grow">
-              <div className="flex items-center mb-1">
-                <FiCalendar className="text-gray-500 mr-2" />
+            <div className="flex-grow mb-4 md:w-1/2 md:mr-2">
+              <div className="flex items-center justify-center mb-1 md:justify-normal">
+                <FiCalendar className="mr-2 text-gray-500" />
                 <label
                   htmlFor="pickupDate"
-                  className="block text-gray-600 font-medium"
+                  className="block font-medium text-gray-600"
                 >
                   Pick-up Date
                 </label>
@@ -112,12 +115,12 @@ const BookingForm = () => {
                 required
               />
             </div>
-            <div className="mb-4 md:w-1/2 md:ml-2 flex-grow">
-              <div className="flex items-center mb-1">
-                <FiCalendar className="text-gray-500 mr-2" />
+            <div className="flex-grow mb-4 md:w-1/2 md:ml-2">
+              <div className="flex items-center justify-center mb-1 md:justify-normal">
+                <FiCalendar className="mr-2 text-gray-500" />
                 <label
                   htmlFor="dropoffDate"
-                  className="block text-gray-600 font-medium"
+                  className="block font-medium text-gray-600"
                 >
                   Drop-off Date
                 </label>
@@ -133,10 +136,10 @@ const BookingForm = () => {
               />
             </div>
           </div>
-          <div className="mt-6 flex-grow self-center">
+          <div className="self-center flex-grow mt-6">
             <button
               type="submit"
-              className="w-full md:w-auto px-10 py-3 bg-orange-500 text-white text-lg font-semibold hover:bg-orange-600 rounded-md"
+              className="w-full px-10 py-3 text-lg font-semibold text-white transition-colors bg-orange-500 shadow-lg md:w-auto hover:bg-orange-600 shadow-orange-500 duration-350"
             >
               Book Now
             </button>

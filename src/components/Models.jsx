@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Sedan from "../img/sedan.png";
 import Suv from "../img/suv.png";
 import Convertible from "../img/convertible.png";
+import Hatchback from "../img/hatchback.png";
+import Coupe from "../img/coupe.png";
+import Sports from "../img/sports.png";
 
 const Models = () => {
   const defaultModel = {
@@ -69,8 +72,8 @@ const Models = () => {
     },
     {
       index: 4,
-      name: "SUV",
-      image: Suv,
+      name: "Hatchback",
+      image: Hatchback,
       expenses: 80,
       info: {
         Model: "XUV200",
@@ -84,8 +87,8 @@ const Models = () => {
     },
     {
       index: 5,
-      name: "Sedan",
-      image: Sedan,
+      name: "Coupe",
+      image: Coupe,
       expenses: 70,
       info: {
         Model: "Sedan XL",
@@ -99,8 +102,8 @@ const Models = () => {
     },
     {
       index: 6,
-      name: "Convertible",
-      image: Convertible,
+      name: "Sports",
+      image: Sports,
       expenses: 90,
       info: {
         Model: "Roadster",
@@ -119,10 +122,10 @@ const Models = () => {
   };
 
   return (
-    <div className="h-screen grid place-items-center grid-row-4">
+    <div className="grid md:h-screen place-items-center grid-row-4" id="models">
       <div className="mt-10">
-        <h1 className="text-2xl font-bold text-center my-2">Vehicle Models</h1>
-        <h2 className="text-3xl font-bold text-center my-2">
+        <h1 className="my-2 text-2xl font-bold text-center">Vehicle Models</h1>
+        <h2 className="my-2 text-3xl font-bold text-center">
           Our rental fleet
         </h2>
         <p className="text-center">
@@ -130,37 +133,37 @@ const Models = () => {
           adventure or business trip
         </p>
       </div>
-      <div className="grid md:grid-cols-3 gap-4 sm:flex-row w-full place-items-center row-span-3">
-        <div className="w-full p-11 flex flex-col items-center self-start">
+      <div className="grid w-full row-span-3 gap-4 md:grid-cols-3 sm:flex-row place-items-center">
+        <div className="flex flex-col items-center self-start w-full p-11">
           {models.map((model, index) => (
             <div
               key={index}
-              className={`my-1 text-center cursor-pointer w-full border hover:bg-orange-500 transition-colors duration-350 p-4 ${
+              className={`my-1 text-center cursor-pointer w-full border hover:bg-orange-500 hover:text-white transition-colors duration-350 p-4 ${
                 model.index === selectedModel.index
-                  ? "bg-orange-500"
-                  : "bg-slate-200"
+                  ? "bg-orange-500 text-white"
+                  : "bg-slate-200 "
               }`}
               onClick={() => handleModelClick(model)}
             >
-              {console.log(selectedModel.index)}
               <h3 className="text-xl font-semibold">{model.name}</h3>
             </div>
           ))}
         </div>
 
-        <div className="w-full flex items-center justify-center ">
+        <div className="flex items-center justify-center w-full ">
           <img
             src={selectedModel.image}
             alt={selectedModel.name}
-            className="w-full object-cover rounded-md"
+            className="object-cover w-full rounded-md"
           />
         </div>
 
-        <div className="w-full p-10 flex flex-col items-center">
-          <p className="text-white font-bold bg-orange-500 w-full text-center py-4 mb-0">
-            ${selectedModel.expenses} per day
+        <div className="flex flex-col items-center w-full p-10">
+          <p className="z-10 w-full py-2 -mb-1 font-bold text-center text-white bg-orange-500">
+            <span className="text-3xl"> ${selectedModel.expenses} </span> per
+            day
           </p>
-          <table className="mt-0 border-collapse w-full">
+          <table className="w-full mt-0 text-center border-collapse">
             <tbody>
               {Object.entries(selectedModel.info).map(([key, value]) => (
                 <tr key={key}>
@@ -171,7 +174,7 @@ const Models = () => {
             </tbody>
           </table>
 
-          <button className="mt-4 px-6 py-3 w-full bg-orange-500 text-white font-semibold hover:bg-orange-600">
+          <button className="w-full px-6 py-3 mt-4 font-semibold text-white transition-colors bg-orange-500 shadow-lg hover:bg-orange-600 shadow-orange-500 duration-350">
             RESERVE NOW
           </button>
         </div>
