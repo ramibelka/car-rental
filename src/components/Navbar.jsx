@@ -171,11 +171,11 @@ const Navbar = () => {
       </div>
       {/* Right side of the Navbar - Login/Register Links (visible on all screen sizes) */}
       <div className="hidden space-x-4 md:inline">
-        <a href="#" className="hover:text-yellow-400 ">
+        <a href="/" className="hover:text-yellow-400 ">
           Login
         </a>
         <a
-          href="#"
+          href="/"
           className="px-4 py-2 font-semibold text-white transition-colors bg-orange-500 shadow-lg hover:bg-orange-600 shadow-orange-500 duration-350"
         >
           Register

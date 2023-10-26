@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Redcar from "../img/red-car.png";
 
 const FAQ = () => {
   const [activeQuestion, setActiveQuestion] = useState(null);
