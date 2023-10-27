@@ -1,29 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sedan from "../img/sedan.png";
 import Suv from "../img/suv.png";
 import Convertible from "../img/convertible.png";
 import Hatchback from "../img/hatchback.png";
 import Coupe from "../img/coupe.png";
 import Sports from "../img/sports.png";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const Models = () => {
-  const defaultModel = {
-    index: 1,
-    name: "SUV",
-    image: Suv,
-    expenses: 80,
-    info: {
-      Model: "XUV200",
-      Mark: "Ford",
-      Year: 2023,
-      Doors: 4,
-      AC: "Yes",
-      Transmission: "Automatic",
-      Fuel: "Petrol",
-    },
-  }; //to be changed with only id
-  const [selectedModel, setSelectedModel] = useState(defaultModel);
-
   const models = [
     {
       index: 1,
@@ -117,9 +101,24 @@ const Models = () => {
     },
   ];
 
+  const [selectedModel, setSelectedModel] = useState(models[0]);
+  const [isLoading, setIsLoading] = useState(true);
+
   const handleModelClick = (model) => {
-    setSelectedModel(model);
+    setIsLoading(true);
+
+    const img = new Image();
+    img.onload = () => {
+      setSelectedModel(model);
+      setIsLoading(false);
+    };
+    img.src = model.image;
   };
+
+  useEffect(() => {
+    // When the component mounts, hide the initial loader
+    setIsLoading(false);
+  }, []);
 
   return (
     <div className="grid md:h-screen place-items-center grid-row-4" id="models">
@@ -150,12 +149,16 @@ const Models = () => {
           ))}
         </div>
 
-        <div className="flex items-center justify-center w-full ">
-          <img
-            src={selectedModel.image}
-            alt={selectedModel.name}
-            className="object-cover w-full rounded-md"
-          />
+        <div className="flex items-center justify-center w-full">
+          {isLoading ? (
+            <AiOutlineLoading3Quarters className="text-2xl animate-spin" />
+          ) : (
+            <img
+              src={selectedModel.image}
+              alt={selectedModel.name}
+              className="object-cover w-full rounded-md"
+            />
+          )}
         </div>
 
         <div className="flex flex-col items-center w-full p-10">

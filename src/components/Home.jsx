@@ -50,7 +50,12 @@ const Home = () => {
 
         {/* Right Side: Car Image */}
         <div className="hidden md:w-1/2 sm:inline ">
-          <img src={CarHome} alt="Car" className="w-full h-auto" />
+          <img
+            src={CarHome}
+            alt="Car"
+            className="w-full h-auto"
+            loading="lazy"
+          />
         </div>
       </div>
       <Link to="home" spy={true} smooth={true} duration={800}>
