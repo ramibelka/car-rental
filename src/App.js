@@ -1,29 +1,67 @@
-import { Suspense } from "react";
 import "./App.css";
-import BookingForm from "./components/BookingForm";
-import Download from "./components/Download";
-import FAQ from "./components/FAQ";
-import Footer from "./components/Footer";
-import Home from "./components/Home";
+import { Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Loading from "./components/Loading";
-import Models from "./components/Models";
-import Plan from "./components/Plan";
-import Reviews from "./components/Reviews";
-import Values from "./components/Values";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Layout from "./pages/Layout";
+import NoMatch from "./pages/NoMatch";
+import Vehicles from "./pages/Vehicles";
+import Testimonials from "./pages/Testimonials";
+import Team from "./pages/Team";
+import Contact from "./pages/Contact";
+//import Contact from "./Contact"; <Route path="/contact" component={Contact} />
 
 function App() {
   return (
-    <Suspense fallback={<Loading />}>
-      <Home />
-      <BookingForm />
-      <Plan />
-      <Models />
-      <Values />
-      <Reviews />
-      <FAQ />
-      <Download />
-      <Footer />
-    </Suspense>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="about"
+            element={
+              <Suspense fallback={<Loading />}>
+                <About />
+              </Suspense>
+            }
+          />
+          <Route
+            path="vehicles"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Vehicles />
+              </Suspense>
+            }
+          />
+          <Route
+            path="testimonials"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Testimonials />
+              </Suspense>
+            }
+          />
+          <Route
+            path="team"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Team />
+              </Suspense>
+            }
+          />
+          <Route
+            path="contact"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Contact />
+              </Suspense>
+            }
+          />
+          <Route path="*" element={<NoMatch />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -5,7 +5,7 @@ import { FaQuoteRight } from "react-icons/fa";
 
 const Reviews = () => {
   return (
-    <div className="bg-slate-50">
+    <div className="mb-24 bg-slate-50">
       <div className="max-w-4xl p-4 mx-auto md:my-20">
         <h3 className="text-xl font-bold text-center">Reviewed by People</h3>
         <h1 className="my-3 text-4xl font-extrabold text-center">
